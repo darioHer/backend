@@ -85,6 +85,11 @@ export class ProductoService {
             // Actualizar los valores solo si se envían en el DTO
             producto.pro_nombre = dto.pro_nombre ?? producto.pro_nombre;
             producto.pro_precio = dto.pro_precio ?? producto.pro_precio;
+            producto.pro_stock = dto.pro_stock ?? producto.pro_stock;
+            producto.pro_categoria = dto.pro_categoria ?? producto.pro_categoria;
+            producto.pro_descripcion = dto.pro_descripcion ?? producto.pro_descripcion;
+            producto.pro_proveedor = dto.pro_proveedor ?? producto.pro_proveedor
+            
 
 
 

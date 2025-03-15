@@ -1,4 +1,4 @@
-export class MessaeDto {
+export class MessageDto {
     message: string[] = [];
 
 

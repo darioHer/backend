@@ -1,16 +1,13 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-
-
 import { DB_DATABASE, DB_HOST, DB_PASSWORD, DB_PORT, DB_USER } from './config/constans';
-
 import { ProductoModule } from './producto/producto.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ProductoController } from './producto/producto.controller';
-import { UsuarioController } from './usuarios/usuarios.controller';
-import { UsuarioModule } from './usuarios/usuarios.module';
+import { UsuarioModule } from './usuario/usuario.module';
+
 
 
 
@@ -42,10 +39,12 @@ import { UsuarioModule } from './usuarios/usuarios.module';
   ProductoModule,
   
   UsuarioModule,
+  
+
 
 
   ],
-  controllers: [AppController, ProductoController, UsuarioController],
+  controllers: [AppController, ProductoController],
   providers: [AppService, ConfigService],
 })
 export class AppModule {}

@@ -6,8 +6,6 @@ import { ProductoModule } from './producto/producto.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ProductoController } from './producto/producto.controller';
-import { UsuarioModule } from './usuario/usuario.module';
-
 
 
 
@@ -38,13 +36,12 @@ import { UsuarioModule } from './usuario/usuario.module';
   
   ProductoModule,
   
-  UsuarioModule,
-  
+
 
 
 
   ],
-  controllers: [AppController, ProductoController],
-  providers: [AppService, ConfigService],
+  controllers: [AppController, ProductoController,],
+  providers: [AppService, ConfigService,],
 })
 export class AppModule {}

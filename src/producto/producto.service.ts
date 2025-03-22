@@ -1,15 +1,10 @@
-import {
-    BadRequestException,
-    Injectable,
-    InternalServerErrorException,
-    NotFoundException
-} from '@nestjs/common';
-import { MessageDto } from 'src/common/message.dto';
-import { ProductoEntity } from 'src/entities/producto/producto.entity';
+import { BadRequestException, Injectable, InternalServerErrorException, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository, Not } from 'typeorm';
-import { CreateProductoDto } from 'src/dto/create-producto.dto';
-import { UpdateProductoDto } from 'src/dto/update-producto.dto';
+import { MessageDto } from 'src/common/message.dto';
+import { CreateProductoDto } from 'src/producto/dto/create-producto.dto';
+import { UpdateProductoDto } from 'src/producto/dto/update-producto.dto';
+import { ProductoEntity } from 'src/producto/entity/producto.entity';
+import { Not, Repository } from 'typeorm';
 
 @Injectable()
 export class ProductoService {
@@ -18,7 +13,7 @@ export class ProductoService {
         private readonly productoRepository: Repository<ProductoEntity>,
     ) { }
 
-    // ✅ Listar productos
+    // Listar productos
     async getAllProductos(): Promise<ProductoEntity[]> {
         try {
             const productos = await this.productoRepository.find();
@@ -31,7 +26,7 @@ export class ProductoService {
         }
     }
 
-    // ✅ Encontrar producto por ID
+    // Encontrar producto por ID
     async getProductoById(pro_id: number): Promise<ProductoEntity> {
         try {
             const producto = await this.productoRepository.findOne({ where: { pro_id } });
@@ -44,7 +39,7 @@ export class ProductoService {
         }
     }
 
-    // ✅ Crear producto
+    // Crear producto
     async createProducto(dto: CreateProductoDto): Promise<ProductoEntity> {
         try {
             const { pro_nombre } = dto;
@@ -62,7 +57,7 @@ export class ProductoService {
         }
     }
 
-    // ✅ Actualizar producto
+    // Actualizar producto
     async updateProducto(pro_id: number, dto: UpdateProductoDto): Promise<ProductoEntity> {
         try {
             const producto = await this.productoRepository.findOne({ where: { pro_id } });
@@ -99,7 +94,7 @@ export class ProductoService {
         }
     }
 
-    // ✅ Eliminar producto
+    // Eliminar producto
     async deleteProducto(pro_id: number): Promise<MessageDto> {
         try {
             const producto = await this.productoRepository.findOne({ where: { pro_id } });

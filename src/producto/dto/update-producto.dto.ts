@@ -14,7 +14,7 @@ export class UpdateProductoDto {
     @IsNotEmpty()
     pro_precio?: number;
 
-    //categoria
+    
     @IsString()
     @IsNotEmpty()
     @Length(3, 50)

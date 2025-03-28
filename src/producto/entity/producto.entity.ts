@@ -1,5 +1,5 @@
-import { ResenaEntity } from "src/resena/entity/resena.entity";
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+
+import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 
 @Entity({ name: 'producto' })
@@ -25,9 +25,7 @@ export class ProductoEntity {
     @Column({ type: 'varchar', length: 50, nullable: false })
     pro_proveedor: string;
 
-    @OneToMany(() => ResenaEntity, (resena) => resena.producto)
-    resenas: ResenaEntity[];
-    
+
 
 
 }

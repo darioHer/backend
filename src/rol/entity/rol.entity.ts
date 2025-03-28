@@ -1,4 +1,4 @@
-import { ResenaEntity } from 'src/resena/entity/resena.entity';
+
 import { UsuarioEntity } from 'src/usuario/entity/usuario.entity';
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
@@ -14,6 +14,4 @@ export class RolEntity {
   @OneToMany(() => UsuarioEntity, (usuario) => usuario.rol)
   usuarios: UsuarioEntity[];
 
-  @OneToMany(() => ResenaEntity, (resena) => resena.rol)
-  resenas: ResenaEntity[];
 }

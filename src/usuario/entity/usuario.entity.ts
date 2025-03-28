@@ -1,6 +1,6 @@
-import { ResenaEntity } from 'src/resena/entity/resena.entity';
+
 import { RolEntity } from 'src/rol/entity/rol.entity';
-import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 
 
 @Entity({name: 'usuario'})
@@ -17,9 +17,8 @@ export class UsuarioEntity {
   @Column()
   usu_password: string;
 
-  @ManyToOne(() => RolEntity, (rol) => rol.usuarios, { nullable: false, onDelete: 'CASCADE' })
-  rol: RolEntity;
+  @ManyToOne(() => RolEntity, { nullable: true }) 
+  @JoinColumn({ name: 'rolRolId' })
+  rol?: RolEntity;
 
-  @OneToMany(() => ResenaEntity, (resena) => resena.usuario)
-  resenas: ResenaEntity[];
 }

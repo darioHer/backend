@@ -6,6 +6,9 @@ import { ProductoModule } from './producto/producto.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ProductoController } from './producto/producto.controller';
+import { RolModule } from './rol/rol.module';
+import { UsuarioModule } from './usuario/usuario.module';
+import { ResenaModule } from './resena/resena.module';
 
 
 
@@ -35,10 +38,9 @@ import { ProductoController } from './producto/producto.controller';
   }),
   
   ProductoModule,
-  
-
-
-
+  RolModule,
+  UsuarioModule,
+  ResenaModule
 
   ],
   controllers: [AppController, ProductoController,],
